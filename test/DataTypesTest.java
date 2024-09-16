@@ -27,4 +27,18 @@ public class DataTypesTest {
         }
         assertEquals("sum from 1 to 1 million should be " + x, x, DataTypes.sum(lst));
     }
+
+    @Test(timeout = 1000)
+    /**
+     * Test that DataTypes.sum returns the correct value for
+     * adding 0's.
+     */
+    public void zeroSumTest() {
+        int x = 0;
+        List<Integer> lst = new ArrayList<>();
+        for (int a = 1; a <= 1_000_000; a++) {
+            lst.add(0);
+        }
+        assertEquals("sum of a million 0 is " + x, x, DataTypes.sum(lst));
+    }
 }
